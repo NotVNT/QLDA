@@ -1,0 +1,68 @@
+:root {
+  --header-height: 56px;
+  --header-padding-x: 16px;
+  --header-bg: #ffffff;
+  --header-border: #e5e7eb; /* gray-200 */
+  --header-text: #111827;   /* gray-900 */
+  --primary: #2563eb;       /* blue-600 */
+  --primary-hover: #1d4ed8; /* blue-700 */
+  --primary-pressed: #1e40af; /* blue-800 */
+  --focus: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  --disabled: #9ca3af;      /* gray-400 */
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--header-padding-x);
+  background: var(--header-bg);
+  color: var(--header-text);
+  border-bottom: 1px solid var(--header-border);
+}
+
+/* left spacer makes it easy to add logo later without touching layout */
+.app-header__spacer {
+  min-width: 1px;
+}
+
+.app-header__actions {
+  margin-left: auto;
+}
+
+.app-header__login-button {
+  appearance: none;
+  border: 1px solid transparent;
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 60ms ease, box-shadow 120ms ease;
+}
+
+.app-header__login-button:hover {
+  background: var(--primary-hover);
+}
+
+.app-header__login-button:active {
+  background: var(--primary-pressed);
+  transform: translateY(0.5px);
+}
+
+.app-header__login-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+.app-header__login-button:disabled,
+.app-header__login-button[disabled] {
+  cursor: not-allowed;
+  background: var(--disabled);
+  color: #f9fafb; /* near white for contrast */
+}
