@@ -47,8 +47,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import Login from '@/components/auth/Login.vue'
-import RegisterForm from '@/components/auth/RegisterForm.vue'
+import Login from '@/components/Login.vue'
+import RegisterForm from '@/components/RegisterForm.vue'
 import '@/styles/auth.css'
 
 const route = useRoute()

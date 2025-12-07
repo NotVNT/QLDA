@@ -1,37 +1,28 @@
 <template>
   <form class="login-form" @submit.prevent="submit">
     <div class="form-group">
-      <label class="form-label" for="login-phone">Số điện thoại</label>
+      <label class="form-label" for="login-email">Email</label>
       <input
-        id="login-phone"
+        id="login-email"
         class="input"
-        type="tel"
-        inputmode="tel"
-        autocomplete="tel"
-        placeholder="Số điện thoại"
-        v-model.trim="form.phone"
+        type="email"
+        inputmode="email"
+        autocomplete="email"
+        placeholder="Nhập email"
+        v-model.trim="form.email"
       />
     </div>
 
     <div class="form-group input-password">
       <label class="form-label" for="login-password">Mật khẩu</label>
       <input
-        :type="showPass ? 'text' : 'password'"
+        type="password"
         id="login-password"
         class="input"
         autocomplete="current-password"
         placeholder="Nhập mật khẩu"
         v-model.trim="form.password"
       />
-      <button
-        type="button"
-        class="toggle-eye"
-        :aria-label="showPass ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'"
-        @click="showPass = !showPass"
-      >
-        <span v-if="showPass">🙈</span>
-        <span v-else>👁️</span>
-      </button>
     </div>
 
     <div class="row-between">
@@ -56,18 +47,19 @@
 </template>
 
 <script setup>
-import { reactive, computed, ref } from 'vue'
+import { reactive, computed } from 'vue'
 
 const emit = defineEmits(['submit', 'forgot'])
 
-const form = reactive({ phone: '', password: '', remember: false })
-const showPass = ref(false)
+const form = reactive({ email: '', password: '', remember: false })
 
-const canSubmit = computed(() => isValidPhone(form.phone) && form.password.length >= 6)
 
-function isValidPhone(v) {
-  // Simple, extensible rule: 9-11 digits. Replace with lib later.
-  return /^(\+?\d)?\d{9,11}$/.test(v.replace(/\s/g, ''))
+const canSubmit = computed(() => isValidEmail(form.email) && form.password.length >= 6)
+
+function isValidEmail(email) {
+  // A simple regex for email validation.
+  // For production, a more robust library like `validator.js` is recommended.
+  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)
 }
 
 function submit() {
@@ -84,4 +76,3 @@ function onForgot() {
 /***** Component-specific hooks (layout comes from shared auth.css) *****/
 .login-form .toggle-eye { font-size: 16px; }
 </style>
-

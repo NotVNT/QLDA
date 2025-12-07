@@ -1,0 +1,68 @@
+.notification-container {
+  position: fixed;
+  top: 80px; /* Below the header */
+  right: 20px;
+  z-index: 1000;
+  width: 320px;
+}
+
+.notification {
+  background-color: #fff;
+  color: #fff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.notification--success {
+  background-color: #28a745;
+}
+
+.notification--error {
+  background-color: #dc3545;
+}
+
+.notification--warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+.notification--info {
+  background-color: #17a2b8;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.7;
+  padding: 0 0 0 15px;
+}
+
+.close-button:hover {
+  opacity: 1;
+}
+
+/* Transitions for the notification list */
+.notification-enter-active,
+.notification-leave-active {
+  transition: all 0.5s ease;
+}
+
+.notification-enter-from,
+.notification-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.notification-leave-active {
+  position: absolute; /* To prevent list from jumping on removal */
+}

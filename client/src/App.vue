@@ -1,7 +1,8 @@
 <template>
   <router-view />
+  <NotificationDisplay />
 </template>
 
 <script setup>
-// The app renders only the auth routes for now
+import NotificationDisplay from '@/components/NotificationDisplay.vue';
 </script>

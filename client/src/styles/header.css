@@ -32,6 +32,21 @@
 
 .app-header__actions {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.app-header__admin-link {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background-color 120ms ease;
+}
+
+.app-header__admin-link:hover {
+  background-color: #f3f4f6; /* gray-100 */
 }
 
 .app-header__login-button {

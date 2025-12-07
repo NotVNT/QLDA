@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import Header from '@/components/layout/Header.vue'
+import Header from '@/components/Header.vue'
 
 // Vitest is configured via vite.config.js with jsdom and globals
 
